@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <title>Fightlab PWA Dashboard</title>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap' rel='stylesheet'>
+  <style>
+    :root{
+      --bg0:#070A12;
+      --bg1:#0B1220;
+      --card:#0F172A;
+      --card2:#111C33;
+      --stroke:rgba(255,255,255,0.10);
+      --text:#E5E7EB;
+      --muted:#94A3B8;
+      --accent:#7C3AED;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+    }
+    html, body { height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(124,58,237,.30), rgba(0,0,0,0) 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(6,182,212,.22), rgba(0,0,0,0) 55%),
+        radial-gradient(900px 700px at 80% 90%, rgba(34,197,94,.18), rgba(0,0,0,0) 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    .wrap{ max-width:1200px; margin:0 auto; padding:28px 18px 44px; }
+
+    .topbar{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:18px;
+    }
+    .title{ font-size:26px; font-weight:800; letter-spacing:-0.02em; }
+    .subtitle{ color:var(--muted); font-size:14px; margin-top:6px; }
+    .badge{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.06);
+      padding:10px 12px;
+      border-radius:12px;
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .kpi-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap:12px;
+      margin: 16px 0 16px;
+    }
+    .kpi-card{
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius:16px;
+      padding:14px 14px;
+      box-shadow: var(--shadow);
+    }
+    .kpi-label{ color: var(--muted); font-size:12px; font-weight:600; }
+    .kpi-value{ font-size:22px; font-weight:800; margin-top:8px; letter-spacing:-0.02em; }
+    .kpi-value-small{ font-size:16px; }
+
+    .card{
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border-radius:18px;
+      padding:14px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .foot{
+      margin-top:14px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 980px){
+      .kpi-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 520px){
+      .kpi-grid{ grid-template-columns: repeat(1, minmax(0, 1fr)); }
+      .title{ font-size:22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class='wrap'>
+
+    <div class='topbar'>
+      <div>
+        <div class='title'>Fightlab PWA Analytics</div>
+        <div class='subtitle'>Registrations by time, geography, platform, and preferred control scheme</div>
+      </div>
+      <div class='badge'>Generated locally • Plotly HTML • No Dash dependency</div>
+    </div>
+
+    
+<div class='kpi-grid'>
+  <div class='kpi-card'>
+    <div class='kpi-label'>Total users</div>
+    <div class='kpi-value'>100</div>
+  </div>
+  <div class='kpi-card'>
+    <div class='kpi-label'>Date range</div>
+    <div class='kpi-value kpi-value-small'>2026-01-01  2026-01-31</div>
+  </div>
+  <div class='kpi-card'>
+    <div class='kpi-label'>Active days</div>
+    <div class='kpi-value'>31</div>
+  </div>
+  <div class='kpi-card'>
+    <div class='kpi-label'>Avg registrations per day</div>
+    <div class='kpi-value'>3.23</div>
+  </div>
+</div>
+
+
+    <div class='card'>
+      <div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.3.0.min.js" integrity="sha256-bO3dS6yCpk9aK4gUpNELtCiDeSYvGYnK7jFI58NQnHI=" crossorigin="anonymous"></script>                <div id="ebaac648-bc91-4e64-ab2e-131b08a4e1cf" class="plotly-graph-div" style="height:820px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ebaac648-bc91-4e64-ab2e-131b08a4e1cf")) {                    Plotly.newPlot(                        "ebaac648-bc91-4e64-ab2e-131b08a4e1cf",                        [{"hovertemplate":"Date: %{x}\u003cbr\u003eRegistrations: %{y}\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"#7C3AED","width":3},"marker":{"color":"#A78BFA","line":{"color":"#1F2937","width":1},"size":7},"mode":"lines+markers","x":["2026-01-01","2026-01-02","2026-01-03","2026-01-04","2026-01-05","2026-01-06","2026-01-07","2026-01-08","2026-01-09","2026-01-10","2026-01-11","2026-01-12","2026-01-13","2026-01-14","2026-01-15","2026-01-16","2026-01-17","2026-01-18","2026-01-19","2026-01-20","2026-01-21","2026-01-22","2026-01-23","2026-01-24","2026-01-25","2026-01-26","2026-01-27","2026-01-28","2026-01-29","2026-01-30","2026-01-31"],"y":{"dtype":"i1","bdata":"AgMEBAMEAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDCA=="},"type":"scatter","xaxis":"x","yaxis":"y"},{"hovertemplate":"%{y}: %{x} users\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#22C55E"},"orientation":"h","x":{"dtype":"i1","bdata":"LRQHBwcHBw=="},"y":["Mexico","United States","Argentina","Brazil","Chile","Colombia","Peru"],"type":"bar","xaxis":"x2","yaxis":"y2"},{"hovertemplate":"%{x}: %{y} users\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#06B6D4"},"x":["Android","Web","iOS"],"y":{"dtype":"i1","bdata":"OhgS"},"type":"bar","xaxis":"x3","yaxis":"y3"},{"hovertemplate":"%{x}: %{y} users\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"#F97316"},"x":["Controller","Keyboard","Touch"],"y":{"dtype":"i1","bdata":"RRgH"},"type":"bar","xaxis":"x4","yaxis":"y4"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,0.45]},"yaxis":{"anchor":"x","domain":[0.56,1.0]},"xaxis2":{"anchor":"y2","domain":[0.55,1.0]},"yaxis2":{"anchor":"x2","domain":[0.56,1.0],"categoryorder":"total ascending"},"xaxis3":{"anchor":"y3","domain":[0.0,0.45]},"yaxis3":{"anchor":"x3","domain":[0.0,0.44]},"xaxis4":{"anchor":"y4","domain":[0.55,1.0]},"yaxis4":{"anchor":"x4","domain":[0.0,0.44]},"annotations":[{"font":{"size":16},"showarrow":false,"text":"Registrations over time","x":0.225,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Users by country","x":0.775,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Users by platform","x":0.225,"xanchor":"center","xref":"paper","y":0.44,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"Users by preferred input","x":0.775,"xanchor":"center","xref":"paper","y":0.44,"yanchor":"bottom","yref":"paper"}],"margin":{"l":40,"r":40,"t":60,"b":40},"font":{"family":"Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial","size":13,"color":"#E5E7EB"},"title":{"text":"Fightlab PWA - Registration Overview","x":0.01,"xanchor":"left"},"height":820,"paper_bgcolor":"rgba(0,0,0,0)","plot_bgcolor":"rgba(0,0,0,0)","legend":{"orientation":"h","yanchor":"bottom","y":1.02,"xanchor":"right","x":1}},                        {"displayModeBar": true, "responsive": true}                    )                };            </script>        </div>
+    </div>
+
+    <div class='foot'>
+      <div>Tip: Use the Plotly toolbar to zoom, pan, and export PNG.</div>
+      <div>Data source: pwa_figthlab_data.csv</div>
+    </div>
+
+  </div>
+</body>
+</html>
